@@ -3,26 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ירח הדבש ביפן - 3 שבועות 🌸</title>
+    <title>ירח הדבש ביפן - לוח שנה שבועי 🌸</title>
     <style>
         :root {
             --bg-color: #FAFAFA;
             --primary-rose: #FF5E7E; 
             --turquoise: #00B4D8;    
-            --mint-green: #90E0EF;
             --text-dark: #2C3E50;
             --white: #FFFFFF;
 
-            --cat-attractions: #E0FBFC;
+            /* צבעי קטגוריות מותאמים */
+            --cat-attractions: #E0FBFC; /* אתרי תיירות */
             --cat-attractions-border: #00B4D8;
-            --cat-shopping: #FFD1DC;
+            
+            --cat-shopping: #FFD1DC;    /* שופינג */
             --cat-shopping-border: #FF5E7E;
-            --cat-restaurants: #FFF3B0;
+
+            --cat-restaurants: #FFF3B0; /* מסעדות */
             --cat-restaurants-border: #FFB703;
-            --cat-cafes: #CAF0F8;
+
+            --cat-cafes: #CAF0F8;       /* בתי קפה */
             --cat-cafes-border: #0077B6;
-            --cat-museums: #E2ECE9;
+
+            --cat-markets: #FFE5D9;     /* שווקים */
+            --cat-markets-border: #F4A261;
+
+            --cat-museums: #E2ECE9;     /* מוזיאונים */
             --cat-museums-border: #6C757D;
+
+            --cat-hotels: #E9D8FD;      /* מלונות */
+            --cat-hotels-border: #805AD5;
+
+            --cat-flights: #FEFCBF;     /* טיסות */
+            --cat-flights-border: #D69E2E;
+
+            --cat-areas: #C6F6D5;       /* אזורים */
+            --cat-areas-border: #38A169;
         }
 
         body {
@@ -61,13 +77,21 @@
             margin: 0 auto;
         }
 
+        .week-title {
+            color: var(--primary-rose);
+            font-size: 1.5rem;
+            margin: 30px 0 15px 0;
+            border-bottom: 2px solid var(--primary-rose);
+            padding-bottom: 5px;
+        }
+
         .day-card {
             background: var(--white);
             border-radius: 12px;
             padding: 24px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-right: 6px solid var(--primary-rose);
+            border-right: 6px solid var(--turquoise);
         }
 
         h2 {
@@ -75,24 +99,24 @@
             border-bottom: 2px solid var(--bg-color);
             padding-bottom: 10px;
             margin-top: 0;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
         }
 
         .section-title {
             font-weight: bold;
-            margin: 18px 0 8px 0;
+            margin: 15px 0 8px 0;
             color: #444;
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 1.05rem;
+            font-size: 1rem;
         }
 
         ul { list-style: none; padding: 0; margin: 0; }
 
         li {
-            padding: 12px 14px;
-            margin: 8px 0;
+            padding: 10px 14px;
+            margin: 6px 0;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -100,13 +124,18 @@
             align-items: center;
             gap: 10px;
             user-select: none;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
         li:hover { opacity: 0.9; transform: translateX(-3px); }
 
+        /* קטגוריות */
+        li.flights { background-color: var(--cat-flights); border-right: 4px solid var(--cat-flights-border); }
+        li.hotels { background-color: var(--cat-hotels); border-right: 4px solid var(--cat-hotels-border); }
+        li.areas { background-color: var(--cat-areas); border-right: 4px solid var(--cat-areas-border); }
         li.attractions { background-color: var(--cat-attractions); border-right: 4px solid var(--cat-attractions-border); }
         li.shopping { background-color: var(--cat-shopping); border-right: 4px solid var(--cat-shopping-border); }
+        li.markets { background-color: var(--cat-markets); border-right: 4px solid var(--cat-markets-border); }
         li.restaurants { background-color: var(--cat-restaurants); border-right: 4px solid var(--cat-restaurants-border); }
         li.cafes { background-color: var(--cat-cafes); border-right: 4px solid var(--cat-cafes-border); }
         li.museums { background-color: var(--cat-museums); border-right: 4px solid var(--cat-museums-border); }
@@ -121,15 +150,15 @@
         li.completed::before { content: "✅"; }
 
         .photo-section {
-            margin-top: 20px;
-            padding-top: 15px;
+            margin-top: 15px;
+            padding-top: 12px;
             border-top: 1px dashed #E0E0E0;
         }
-        .photo-section h3 { font-size: 1rem; color: #555; margin-bottom: 10px; }
-        .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; }
+        .photo-section h3 { font-size: 0.95rem; color: #555; margin-bottom: 8px; }
+        .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 8px; }
         .photo-placeholder {
-            background: #F2F4F4; border: 2px dashed #BDC3C7; border-radius: 8px; height: 90px;
-            display: flex; align-items: center; justify-content: center; color: #7F8C8D; font-size: 0.85rem; text-align: center; padding: 5px;
+            background: #F2F4F4; border: 2px dashed #BDC3C7; border-radius: 8px; height: 80px;
+            display: flex; align-items: center; justify-content: center; color: #7F8C8D; font-size: 0.8rem; text-align: center; padding: 4px;
         }
     </style>
 </head>
@@ -138,33 +167,84 @@
     <div class="container">
         <a href="index.html" class="back-home">🏠 חזרה לעמוד הבית</a>
         <header>
-            <h1>🌸 ירח הדבש ביפן</h1>
-            <p>29.9.2026 – 20.10.2026 (3 שבועות של קסם)</p>
+            <h1>🇯🇵 ירח הדבש ביפן: לוח שנה שבועי</h1>
+            <p>29.9.2026 – 20.10.2026 (3 שבועות מראשון עד שבת)</p>
         </header>
 
-        <!-- יום 1 -->
+        <!-- שבוע 1 -->
+        <div class="week-title">📅 שבוע 1 (29.9 – 3.10)</div>
+
+        <!-- יום שלישי 29.9 -->
         <div class="day-card">
-            <h2>יום 1: שלישי, 29.9.2026 — נחיתה והיכרות עם טוקיו</h2>
+            <h2>יום שלישי, 29.9.2026</h2>
             
-            <div class="section-title">⛩️ אתרי תיירות ואטרקציות</div>
+            <div class="section-title">✈️ טיסות</div>
             <ul>
-                <li class="attractions" onclick="toggleItem(this)">✈️ נחיתה בשדה התעופה והגעה למלון</li>
-                <li class="attractions" onclick="toggleItem(this)">🌆 תצפית מרהיבה על העיר ממגדל העירייה</li>
+                <li class="flights" onclick="toggleItem(this)">✈️ נחיתה בשדה התעופה בטוקיו</li>
             </ul>
 
-            <div class="section-title">🍜 מסעדות ואוכל</div>
+            <div class="section-title">🏨 מלונות</div>
+            <ul>
+                <li class="hotels" onclick="toggleItem(this)">🏨 הגעה וצ'ק-אין במלון בשינג'וקו</li>
+            </ul>
+
+            <div class="section-title">📍 אזורים</div>
+            <ul>
+                <li class="areas" onclick="toggleItem(this)">📍 אזור שינג'וקו (Shinjuku)</li>
+            </ul>
+
+            <div class="section-title">⛩️ אתרי תיירות ואטרקציות</div>
+            <ul>
+                <li class="attractions" onclick="toggleItem(this)">🌆 תצפית על העיר ממגדל העירייה</li>
+            </ul>
+
+            <div class="section-title">🍜 מסעדות</div>
             <ul>
                 <li class="restaurants" onclick="toggleItem(this)">🥢 ארוחת ראמן ראשונה במסעדת Ichiran</li>
             </ul>
 
             <div class="photo-section">
-                <h3>📸 רגעים מהיום (תמונות)</h3>
+                <h3>📸 רגעים מהיום</h3>
                 <div class="photo-grid">
                     <div class="photo-placeholder">תמונה 1</div>
                     <div class="photo-placeholder">תמונה 2</div>
                 </div>
             </div>
         </div>
+
+        <!-- יום רביעי 30.9 -->
+        <div class="day-card">
+            <h2>יום רביעי, 30.9.2026</h2>
+            
+            <div class="section-title">📍 אזורים</div>
+            <ul>
+                <li class="areas" onclick="toggleItem(this)">📍 אסאקוסה והארג'וקו</li>
+            </ul>
+
+            <div class="section-title">⛩️ אתרי תיירות ואטרקציות</div>
+            <ul>
+                <li class="attractions" onclick="toggleItem(this)">🏮 ביקור במקדש סנסו-ג'י באסאקוסה</li>
+            </ul>
+
+            <div class="section-title">🛍️ שופינג</div>
+            <ul>
+                <li class="shopping" onclick="toggleItem(this)">🛍️ שופינג ברחוב Takeshita בהארג'וקו</li>
+            </ul>
+
+            <div class="section-title">☕ בתי קפה</div>
+            <ul>
+                <li class="cafes" onclick="toggleItem(this)">☕ עצירת קפה ומאצ'ה בבית קפה מעוצב</li>
+            </ul>
+
+            <div class="photo-section">
+                <h3>📸 רגעים מהיום</h3>
+                <div class="photo-grid">
+                    <div class="photo-placeholder">תמונה 1</div>
+                    <div class="photo-placeholder">תמונה 2</div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script>
@@ -176,11 +256,11 @@
         function saveState() {
             const items = document.querySelectorAll('li');
             const state = Array.from(items).map(item => item.classList.contains('completed'));
-            localStorage.setItem('japanTripDates2026', JSON.stringify(state));
+            localStorage.setItem('japanCalendarState', JSON.stringify(state));
         }
 
         window.onload = function() {
-            const savedState = localStorage.getItem('japanTripDates2026');
+            const savedState = localStorage.getItem('japanCalendarState');
             if (savedState) {
                 const state = JSON.parse(savedState);
                 const items = document.querySelectorAll('li');
