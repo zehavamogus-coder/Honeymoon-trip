@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ירח דבש ביפן - לוח שנה שבועי חכם 🌸</title>
+    <title>ירח הדבש ביפן - לוח שנה שבועי (ראשון - שבת) 🌸</title>
     <style>
         :root {
             --bg-color: #FAFAFA;
@@ -68,7 +68,6 @@
             margin: 0 auto;
         }
 
-        /* ניווט בין שבועות באמצעות חצים */
         .week-nav {
             display: flex;
             justify-content: space-between;
@@ -258,88 +257,158 @@
     <div class="container">
         <a href="index.html" class="back-home">🏠 חזרה לעמוד הבית</a>
         <header>
-            <h1>🇯🇵 ירח הדבש ביפן: 3 שבועות במסלול</h1>
-            <p>ניהול מלא: סימון ✅, הוספה, עריכה, מחיקה ותמונות מהגלריה</p>
+            <h1>🇯🇵 ירח הדבש ביפן: מסלול שבועי</h1>
+            <p>מנוהל מיום ראשון ועד שיום שבת בכל שבוע</p>
         </header>
 
-        <!-- ניווט שבועות -->
         <div class="week-nav">
             <button onclick="changeWeek(-1)">◀ שבוע קודם</button>
-            <h2 class="week-title" id="week-title-text">שבוע 1 (29.9 – 5.10)</h2>
+            <h2 class="week-title" id="week-title-text">שבוע 1 (יום ראשון – שבת)</h2>
             <button onclick="changeWeek(1)">שבוע הבא ▶</button>
         </div>
 
         <div id="content-wrapper">
 
-            <!-- ================= שבוע 1 ================= -->
+            <!-- ================= שבוע 1 (ראשון עד שבת) ================= -->
             <div class="week-section active" id="week-1">
                 <div class="calendar-grid">
                     
-                    <div class="day-card" data-day="day-1">
+                    <div class="day-card" data-day="s1-sun">
                         <div>
-                            <h3>יום שלישי, 29.9</h3>
+                            <h3>יום ראשון</h3>
                             <ul class="items-list">
-                                <li class="flights"><span class="item-text" onclick="toggleItem(this)">✈️ נחיתה בטוקיו</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
-                                <li class="hotels"><span class="item-text" onclick="toggleItem(this)">🏨 צ'ק-אין במלון בשינג'וקו</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
-                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 אזור שינג'וקו</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
-                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🌆 תצפית ממגדל העירייה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
-                                <li class="restaurants"><span class="item-text" onclick="toggleItem(this)">🥢 ראמן במסעדת Ichiran</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="flights"><span class="item-text" onclick="toggleItem(this)">✈️ טיסה / התארגנות</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
                             </ul>
                         </div>
                         <div>
                             <div class="add-item-box">
-                                <input type="text" placeholder="הוסף פעילות..." id="input-day-1">
-                                <button onclick="addNewItem('day-1')">הוסף</button>
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s1-sun">
+                                <button onclick="addNewItem('s1-sun')">הוסף</button>
                             </div>
                             <div class="photo-section">
                                 <h4>📸 תמונות</h4>
-                                <div class="photo-grid" id="photos-day-1"></div>
-                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 'day-1')"></label>
+                                <div class="photo-grid" id="photos-s1-sun"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's1-sun')"></label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="day-card" data-day="day-2">
+                    <div class="day-card" data-day="s1-mon">
                         <div>
-                            <h3>יום רביעי, 30.9</h3>
+                            <h3>יום שני</h3>
                             <ul class="items-list">
-                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 אסאקוסה והארג'וקו</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
-                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🏮 מקדש סנסו-ג'י</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
-                                <li class="shopping"><span class="item-text" onclick="toggleItem(this)">🛍️ שופינג ברחוב Takeshita</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
-                                <li class="cafes"><span class="item-text" onclick="toggleItem(this)">☕ קפה ומאצ'ה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 סיור בטוקיו</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
                             </ul>
                         </div>
                         <div>
                             <div class="add-item-box">
-                                <input type="text" placeholder="הוסף פעילות..." id="input-day-2">
-                                <button onclick="addNewItem('day-2')">הוסף</button>
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s1-mon">
+                                <button onclick="addNewItem('s1-mon')">הוסף</button>
                             </div>
                             <div class="photo-section">
                                 <h4>📸 תמונות</h4>
-                                <div class="photo-grid" id="photos-day-2"></div>
-                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 'day-2')"></label>
+                                <div class="photo-grid" id="photos-s1-mon"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's1-mon')"></label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="day-card" data-day="day-3">
+                    <div class="day-card" data-day="s1-tue">
                         <div>
-                            <h3>יום חמישי, 1.10</h3>
+                            <h3>יום שלישי</h3>
                             <ul class="items-list">
-                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 שיבויה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
-                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">Crossing Shibuya</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
-                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">תצפית Shibuya Sky</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🌆 תצפית ואטרקציות</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
                             </ul>
                         </div>
                         <div>
                             <div class="add-item-box">
-                                <input type="text" placeholder="הוסף פעילות..." id="input-day-3">
-                                <button onclick="addNewItem('day-3')">הוסף</button>
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s1-tue">
+                                <button onclick="addNewItem('s1-tue')">הוסף</button>
                             </div>
                             <div class="photo-section">
                                 <h4>📸 תמונות</h4>
-                                <div class="photo-grid" id="photos-day-3"></div>
-                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 'day-3')"></label>
+                                <div class="photo-grid" id="photos-s1-tue"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's1-tue')"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="s1-wed">
+                        <div>
+                            <h3>יום רביעי</h3>
+                            <ul class="items-list">
+                                <li class="shopping"><span class="item-text" onclick="toggleItem(this)">🛍️ שופינג ושווקים</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s1-wed">
+                                <button onclick="addNewItem('s1-wed')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-s1-wed"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's1-wed')"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="s1-thu">
+                        <div>
+                            <h3>יום חמישי</h3>
+                            <ul class="items-list">
+                                <li class="restaurants"><span class="item-text" onclick="toggleItem(this)">🥢 מסעדות וקולינריה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s1-thu">
+                                <button onclick="addNewItem('s1-thu')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-s1-thu"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's1-thu')"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="s1-fri">
+                        <div>
+                            <h3>יום שישי</h3>
+                            <ul class="items-list">
+                                <li class="hotels"><span class="item-text" onclick="toggleItem(this)">🏨 מעבר מלון / מנוחה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s1-fri">
+                                <button onclick="addNewItem('s1-fri')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-s1-fri"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's1-fri')"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="s1-sat">
+                        <div>
+                            <h3>יום שבת</h3>
+                            <ul class="items-list">
+                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🌸 יום חופשי / טיול</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s1-sat">
+                                <button onclick="addNewItem('s1-sat')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-s1-sat"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's1-sat')"></label>
                             </div>
                         </div>
                     </div>
@@ -347,55 +416,297 @@
                 </div>
             </div>
 
-            <!-- ================= שבוע 2 ================= -->
+            <!-- ================= שבוע 2 (ראשון עד שבת) ================= -->
             <div class="week-section" id="week-2">
                 <div class="calendar-grid">
-                    <div class="day-card" data-day="day-8">
+                    
+                    <div class="day-card" data-day="s2-sun">
                         <div>
-                            <h3>יום ראשון, 6.10 (המשך יפן)</h3>
+                            <h3>יום ראשון</h3>
                             <ul class="items-list">
                                 <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 מעבר לקיוטו</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
-                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🚄 רכבת שינקנסן</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
                             </ul>
                         </div>
                         <div>
                             <div class="add-item-box">
-                                <input type="text" placeholder="הוסף פעילות..." id="input-day-8">
-                                <button onclick="addNewItem('day-8')">הוסף</button>
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s2-sun">
+                                <button onclick="addNewItem('s2-sun')">הוסף</button>
                             </div>
                             <div class="photo-section">
                                 <h4>📸 תמונות</h4>
-                                <div class="photo-grid" id="photos-day-8"></div>
-                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 'day-8')"></label>
+                                <div class="photo-grid" id="photos-s2-sun"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's2-sun')"></label>
                             </div>
                         </div>
                     </div>
+
+                    <div class="day-card" data-day="s2-mon">
+                        <div>
+                            <h3>יום שני</h3>
+                            <ul class="items-list">
+                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">⛩️ מקדשים בקיוטו</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s2-mon">
+                                <button onclick="addNewItem('s2-mon')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-s2-mon"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's2-mon')"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="s2-tue">
+                        <div>
+                            <h3>יום שלישי</h3>
+                            <ul class="items-list">
+                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🎋 יער הבמבוק אראשיאמה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s2-tue">
+                                <button onclick="addNewItem('s2-tue')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-s2-tue"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's2-tue')"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="s2-wed">
+                        <div>
+                            <h3>יום רביעי</h3>
+                            <ul class="items-list">
+                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 נסיעה לאוסקה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s2-wed">
+                                <button onclick="addNewItem('s2-wed')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-s2-wed"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's2-wed')"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="s2-thu">
+                        <div>
+                            <h3>יום חמישי</h3>
+                            <ul class="items-list">
+                                <li class="restaurants"><span class="item-text" onclick="toggleItem(this)">🍢 אוכל רחוב דותונбори</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s2-thu">
+                                <button onclick="addNewItem('s2-thu')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-s2-thu"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's2-thu')"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="s2-fri">
+                        <div>
+                            <h3>יום שישי</h3>
+                            <ul class="items-list">
+                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🎡 אולפני יוניברסל אוסקה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s2-fri">
+                                <button onclick="addNewItem('s2-fri')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-s2-fri"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's2-fri')"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="s2-sat">
+                        <div>
+                            <h3>יום שבת</h3>
+                            <ul class="items-list">
+                                <li class="shopping"><span class="item-text" onclick="toggleItem(this)">🛍️ שופינג אחרון באוסקה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s2-sat">
+                                <button onclick="addNewItem('s2-sat')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-s2-sat"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's2-sat')"></label>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <!-- ================= שבוע 3 ================= -->
+            <!-- ================= שבוע 3 (ראשון עד שבת) ================= -->
             <div class="week-section" id="week-3">
                 <div class="calendar-grid">
-                    <div class="day-card" data-day="day-15">
+                    
+                    <div class="day-card" data-day="s3-sun">
                         <div>
-                            <h3>יום ראשון, 13.10 (שבוע 3)</h3>
+                            <h3>יום ראשון</h3>
                             <ul class="items-list">
-                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 אזור הוקונה / הר פוג'י</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
-                                <li class="hotels"><span class="item-text" onclick="toggleItem(this)">🏨 לינה בריוקאן מסורתי עם אונסן</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 מעבר להר פוג'י / אקונה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
                             </ul>
                         </div>
                         <div>
                             <div class="add-item-box">
-                                <input type="text" placeholder="הוסף פעילות..." id="input-day-15">
-                                <button onclick="addNewItem('day-15')">הוסף</button>
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s3-sun">
+                                <button onclick="addNewItem('s3-sun')">הוסף</button>
                             </div>
                             <div class="photo-section">
                                 <h4>📸 תמונות</h4>
-                                <div class="photo-grid" id="photos-day-15"></div>
-                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 'day-15')"></label>
+                                <div class="photo-grid" id="photos-s3-sun"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's3-sun')"></label>
                             </div>
                         </div>
                     </div>
+
+                    <div class="day-card" data-day="s3-mon">
+                        <div>
+                            <h3>יום שני</h3>
+                            <ul class="items-list">
+                                <li class="hotels"><span class="item-text" onclick="toggleItem(this)">♨️ ריוקאן ואונסן מסורתי</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s3-mon">
+                                <button onclick="addNewItem('s3-mon')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-s3-mon"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's3-mon')"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="s3-tue">
+                        <div>
+                            <h3>יום שלישי</h3>
+                            <ul class="items-list">
+                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 חזרה לטוקיו לסיום</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s3-tue">
+                                <button onclick="addNewItem('s3-tue')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-s3-tue"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's3-tue')"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="s3-wed">
+                        <div>
+                            <h3>יום רביעי</h3>
+                            <ul class="items-list">
+                                <li class="shopping"><span class="item-text" onclick="toggleItem(this)">🛍️ קניות אחרונות ומזוודות</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s3-wed">
+                                <button onclick="addNewItem('s3-wed')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-s3-wed"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's3-wed')"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="s3-thu">
+                        <div>
+                            <h3>יום חמישי</h3>
+                            <ul class="items-list">
+                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🍣 ארוחת פפריישן / מסעדת שף</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s3-thu">
+                                <button onclick="addNewItem('s3-thu')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-s3-thu"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's3-thu')"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="s3-fri">
+                        <div>
+                            <h3>יום שישי</h3>
+                            <ul class="items-list">
+                                <li class="flights"><span class="item-text" onclick="toggleItem(this)">✈️ טיסה חזרה הארץ</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s3-fri">
+                                <button onclick="addNewItem('s3-fri')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-s3-fri"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's3-fri')"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="s3-sat">
+                        <div>
+                            <h3>יום שבת</h3>
+                            <ul class="items-list">
+                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🏠 הגעה הביתה וסיכום ירח דבש</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s3-sat">
+                                <button onclick="addNewItem('s3-sat')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-s3-sat"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's3-sat')"></label>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -407,9 +718,9 @@
         let currentWeek = 1;
         const totalWeeks = 3;
         const weekTitles = [
-            "שבוע 1 (29.9 – 5.10)",
-            "שבוע 2 (6.10 – 12.10)",
-            "שבוע 3 (13.10 – 20.10)"
+            "שבוע 1 (יום ראשון – שבת)",
+            "שבוע 2 (יום ראשון – שבת)",
+            "שבוע 3 (יום ראשון – שבת)"
         ];
 
         function changeWeek(direction) {
@@ -470,11 +781,11 @@
 
         function saveAllData() {
             const wrapperHtml = document.getElementById('content-wrapper').innerHTML;
-            localStorage.setItem('japanAdvancedTripData', wrapperHtml);
+            localStorage.setItem('japanSundayToSaturdayData', wrapperHtml);
         }
 
         window.onload = function() {
-            const savedHtml = localStorage.getItem('japanAdvancedTripData');
+            const savedHtml = localStorage.getItem('japanSundayToSaturdayData');
             if (savedHtml) {
                 document.getElementById('content-wrapper').innerHTML = savedHtml;
             }
