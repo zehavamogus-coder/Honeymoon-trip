@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ירח דבש ביפן - מערכת שעות 🌸</title>
+    <title>ירח הדבש ביפן - לוח שנה שבועי חכם 🌸</title>
     <style>
         :root {
             --bg-color: #FAFAFA;
@@ -12,31 +12,22 @@
             --text-dark: #2C3E50;
             --white: #FFFFFF;
 
-            /* צבעי קטגוריות בולטים ומותאמים */
             --cat-attractions: #E0FBFC; 
             --cat-attractions-border: #00B4D8;
-            
             --cat-shopping: #FFD1DC;    
             --cat-shopping-border: #FF5E7E;
-
             --cat-restaurants: #FFF3B0; 
             --cat-restaurants-border: #FFB703;
-
             --cat-cafes: #CAF0F8;       
             --cat-cafes-border: #0077B6;
-
             --cat-markets: #FFE5D9;     
             --cat-markets-border: #F4A261;
-
             --cat-museums: #E2ECE9;     
             --cat-museums-border: #6C757D;
-
             --cat-hotels: #E9D8FD;      
             --cat-hotels-border: #805AD5;
-
             --cat-flights: #FEFCBF;     
             --cat-flights-border: #D69E2E;
-
             --cat-areas: #C6F6D5;       
             --cat-areas-border: #38A169;
         }
@@ -55,7 +46,7 @@
             background: linear-gradient(135deg, var(--primary-rose), var(--turquoise));
             color: var(--white);
             border-radius: 16px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
@@ -77,15 +68,45 @@
             margin: 0 auto;
         }
 
-        .week-title {
-            color: var(--primary-rose);
-            font-size: 1.4rem;
-            margin: 25px 0 15px 0;
-            border-bottom: 2px solid var(--primary-rose);
-            padding-bottom: 5px;
+        /* ניווט בין שבועות באמצעות חצים */
+        .week-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+            padding: 12px 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
         }
 
-        /* עיצוב מערכת השעות כטבלה רשתית */
+        .week-nav button {
+            background: var(--primary-rose);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: opacity 0.2s;
+        }
+        .week-nav button:hover { opacity: 0.9; }
+
+        .week-title {
+            color: var(--text-dark);
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .week-section {
+            display: none;
+        }
+        .week-section.active {
+            display: block;
+        }
+
         .calendar-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -99,6 +120,9 @@
             padding: 18px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.04);
             border-top: 5px solid var(--turquoise);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .day-card h3 {
@@ -106,7 +130,7 @@
             border-bottom: 2px solid var(--bg-color);
             padding-bottom: 8px;
             margin-top: 0;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             text-align: center;
             background: #F8F9F9;
             border-radius: 6px;
@@ -116,28 +140,42 @@
         .items-list {
             list-style: none;
             padding: 0;
-            margin: 0;
+            margin: 0 0 15px 0;
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
 
         li {
-            padding: 10px 12px;
+            padding: 8px 10px;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.2s ease;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 8px;
             user-select: none;
             font-size: 0.9rem;
             box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+            word-break: break-word;
         }
 
-        li:hover { opacity: 0.9; transform: scale(1.01); }
+        .item-text {
+            flex: 1;
+        }
 
-        /* קטגוריות כרטיסיות צבעוניות */
+        .delete-btn {
+            background: none;
+            border: none;
+            color: #E74C3C;
+            cursor: pointer;
+            font-size: 0.9rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .delete-btn:hover { background: #FDEDEC; }
+
         li.flights { background-color: var(--cat-flights); border-right: 4px solid var(--cat-flights-border); }
         li.hotels { background-color: var(--cat-hotels); border-right: 4px solid var(--cat-hotels-border); }
         li.areas { background-color: var(--cat-areas); border-right: 4px solid var(--cat-areas-border); }
@@ -147,27 +185,72 @@
         li.restaurants { background-color: var(--cat-restaurants); border-right: 4px solid var(--cat-restaurants-border); }
         li.cafes { background-color: var(--cat-cafes); border-right: 4px solid var(--cat-cafes-border); }
         li.museums { background-color: var(--cat-museums); border-right: 4px solid var(--cat-museums-border); }
+        li.custom-item { background-color: #EDF2F7; border-right: 4px solid #4A5568; }
 
+        li.completed .item-text {
+            text-decoration: line-through;
+            color: #7F8C8D !important;
+        }
         li.completed {
             background: #EAFAF1 !important;
-            color: #7F8C8D !important;
-            text-decoration: line-through;
             border-right: 4px solid #27AE60 !important;
             opacity: 0.7;
         }
-        li.completed::before { content: "✅"; }
+
+        .add-item-box {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 12px;
+        }
+        .add-item-box input {
+            flex: 1;
+            padding: 6px 10px;
+            border: 1px solid #CBD5E0;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+        .add-item-box button {
+            background: var(--turquoise);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
 
         .photo-section {
-            margin-top: 12px;
-            padding-top: 10px;
+            margin-top: 10px;
+            padding-top: 8px;
             border-top: 1px dashed #E0E0E0;
         }
-        .photo-section h4 { font-size: 0.85rem; color: #666; margin: 0 0 6px 0; }
-        .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
-        .photo-placeholder {
-            background: #F2F4F4; border: 2px dashed #BDC3C7; border-radius: 6px; height: 60px;
-            display: flex; align-items: center; justify-content: center; color: #7F8C8D; font-size: 0.75rem; text-align: center;
+        .photo-section h4 { font-size: 0.8rem; color: #666; margin: 0 0 4px 0; }
+        .photo-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(65px, 1fr)); 
+            gap: 6px; 
+            margin-bottom: 6px;
         }
+        .uploaded-photo {
+            width: 100%;
+            height: 65px;
+            object-fit: cover;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .upload-btn-label {
+            display: block;
+            text-align: center;
+            background: #EDF2F7;
+            border: 1px dashed #A0AEC0;
+            padding: 5px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            color: #4A5568;
+            cursor: pointer;
+        }
+        .file-input { display: none; }
     </style>
 </head>
 <body>
@@ -175,104 +258,143 @@
     <div class="container">
         <a href="index.html" class="back-home">🏠 חזרה לעמוד הבית</a>
         <header>
-            <h1>🇯🇵 ירח הדבש ביפן: מערכת שעות</h1>
-            <p>29.9.2026 – 20.10.2026 (תצוגת לוח שנה שבועי)</p>
+            <h1>🇯🇵 ירח הדבש ביפן: 3 שבועות במסלול</h1>
+            <p>ניהול מלא: סימון ✅, הוספה, עריכה, מחיקה ותמונות מהגלריה</p>
         </header>
 
-        <!-- שבוע 1 -->
-        <div class="week-title">📅 שבוע 1 (29.9 – 3.10)</div>
-        
-        <div class="calendar-grid">
-            
-            <!-- יום שלישי 29.9 -->
-            <div class="day-card">
-                <h3>יום שלישי, 29.9</h3>
-                <ul class="items-list">
-                    <li class="flights" onclick="toggleItem(this)">✈️ נחיתה בשדה התעופה בטוקיו</li>
-                    <li class="hotels" onclick="toggleItem(this)">🏨 הגעה וצ'ק-אין במלון בשינג'וקו</li>
-                    <li class="areas" onclick="toggleItem(this)">📍 אזור שינג'וקו (Shinjuku)</li>
-                    <li class="attractions" onclick="toggleItem(this)">🌆 תצפית על העיר ממגדל העירייה</li>
-                    <li class="restaurants" onclick="toggleItem(this)">🥢 ארוחת ראמן במסעדת Ichiran</li>
-                </ul>
-                <div class="photo-section">
-                    <h4>📸 תמונות</h4>
-                    <div class="photo-grid">
-                        <div class="photo-placeholder">תמונה 1</div>
-                        <div class="photo-placeholder">תמונה 2</div>
+        <!-- ניווט שבועות -->
+        <div class="week-nav">
+            <button onclick="changeWeek(-1)">◀ שבוע קודם</button>
+            <h2 class="week-title" id="week-title-text">שבוע 1 (29.9 – 5.10)</h2>
+            <button onclick="changeWeek(1)">שבוע הבא ▶</button>
+        </div>
+
+        <div id="content-wrapper">
+
+            <!-- ================= שבוע 1 ================= -->
+            <div class="week-section active" id="week-1">
+                <div class="calendar-grid">
+                    
+                    <div class="day-card" data-day="day-1">
+                        <div>
+                            <h3>יום שלישי, 29.9</h3>
+                            <ul class="items-list">
+                                <li class="flights"><span class="item-text" onclick="toggleItem(this)">✈️ נחיתה בטוקיו</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="hotels"><span class="item-text" onclick="toggleItem(this)">🏨 צ'ק-אין במלון בשינג'וקו</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 אזור שינג'וקו</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🌆 תצפית ממגדל העירייה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="restaurants"><span class="item-text" onclick="toggleItem(this)">🥢 ראמן במסעדת Ichiran</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-day-1">
+                                <button onclick="addNewItem('day-1')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-day-1"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 'day-1')"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="day-2">
+                        <div>
+                            <h3>יום רביעי, 30.9</h3>
+                            <ul class="items-list">
+                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 אסאקוסה והארג'וקו</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🏮 מקדש סנסו-ג'י</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="shopping"><span class="item-text" onclick="toggleItem(this)">🛍️ שופינג ברחוב Takeshita</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="cafes"><span class="item-text" onclick="toggleItem(this)">☕ קפה ומאצ'ה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-day-2">
+                                <button onclick="addNewItem('day-2')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-day-2"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 'day-2')"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="day-3">
+                        <div>
+                            <h3>יום חמישי, 1.10</h3>
+                            <ul class="items-list">
+                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 שיבויה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">Crossing Shibuya</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">תצפית Shibuya Sky</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-day-3">
+                                <button onclick="addNewItem('day-3')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-day-3"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 'day-3')"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ================= שבוע 2 ================= -->
+            <div class="week-section" id="week-2">
+                <div class="calendar-grid">
+                    <div class="day-card" data-day="day-8">
+                        <div>
+                            <h3>יום ראשון, 6.10 (המשך יפן)</h3>
+                            <ul class="items-list">
+                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 מעבר לקיוטו</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🚄 רכבת שינקנסן</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-day-8">
+                                <button onclick="addNewItem('day-8')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-day-8"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 'day-8')"></label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- יום רביעי 30.9 -->
-            <div class="day-card">
-                <h3>יום רביעי, 30.9</h3>
-                <ul class="items-list">
-                    <li class="areas" onclick="toggleItem(this)">📍 אסאקוסה והארג'וקו</li>
-                    <li class="attractions" onclick="toggleItem(this)">🏮 ביקור במקדש סנסו-ג'י באסאקוסה</li>
-                    <li class="shopping" onclick="toggleItem(this)">🛍️ שופינג ברחוב Takeshita</li>
-                    <li class="cafes" onclick="toggleItem(this)">☕ עצירת קפה ומאצ'ה מעוצב</li>
-                </ul>
-                <div class="photo-section">
-                    <h4>📸 תמונות</h4>
-                    <div class="photo-grid">
-                        <div class="photo-placeholder">תמונה 1</div>
-                        <div class="photo-placeholder">תמונה 2</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- יום חמישי 1.10 -->
-            <div class="day-card">
-                <h3>יום חמישי, 1.10</h3>
-                <ul class="items-list">
-                    <li class="areas" onclick="toggleItem(this)">📍 שיבויה ושינג'וקו</li>
-                    <li class="attractions" onclick="toggleItem(this)">Crossing Shibuya - חציית מעבר החצייה</li>
-                    <li class="attractions" onclick="toggleItem(this)">תצפית Shibuya Sky לעבר שקיעה</li>
-                    <li class="shopping" onclick="toggleItem(this)">קניות במרכז המסחרי Scramble</li>
-                    <li class="markets" onclick="toggleItem(this)">ביקור בשוק המקומי</li>
-                    <li class="restaurants" onclick="toggleItem(this)">ארוחת ערב במסעדת סושי מסוע</li>
-                </ul>
-                <div class="photo-section">
-                    <h4>📸 תמונות</h4>
-                    <div class="photo-grid">
-                        <div class="photo-placeholder">תמונה 1</div>
-                        <div class="photo-placeholder">תמונה 2</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- יום שישי 2.10 -->
-            <div class="day-card">
-                <h3>יום שישי, 2.10</h3>
-                <ul class="items-list">
-                    <li class="areas" onclick="toggleItem(this)">📍 גינקזה ואקיהאבארה</li>
-                    <li class="museums" onclick="toggleItem(this)">מוזיאון teamLab Planets</li>
-                    <li class="shopping" onclick="toggleItem(this)">סיור חנויות יוקרה ומעצבים</li>
-                    <li class="cafes" onclick="toggleItem(this)">קפה שקט ומעוצב בגינקזה</li>
-                </ul>
-                <div class="photo-section">
-                    <h4>📸 תמונות</h4>
-                    <div class="photo-grid">
-                        <div class="photo-placeholder">תמונה 1</div>
-                        <div class="photo-placeholder">תמונה 2</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- יום שבת 3.10 -->
-            <div class="day-card">
-                <h3>יום שבת, 3.10</h3>
-                <ul class="items-list">
-                    <li class="areas" onclick="toggleItem(this)">📍 פארק יוйоги ורובע הדסון</li>
-                    <li class="attractions" onclick="toggleItem(this)">טיול בפארק יוйоги ומקדש מֵייגִ'י</li>
-                    <li class="shopping" onclick="toggleItem(this)">קניות בגדי וינטג' ברחוב Cat Street</li>
-                    <li class="restaurants" onclick="toggleItem(this)">ארוחת ערב בשר וואגיו יפני מעולה</li>
-                </ul>
-                <div class="photo-section">
-                    <h4>📸 תמונות</h4>
-                    <div class="photo-grid">
-                        <div class="photo-placeholder">תמונה 1</div>
-                        <div class="photo-placeholder">תמונה 2</div>
+            <!-- ================= שבוע 3 ================= -->
+            <div class="week-section" id="week-3">
+                <div class="calendar-grid">
+                    <div class="day-card" data-day="day-15">
+                        <div>
+                            <h3>יום ראשון, 13.10 (שבוע 3)</h3>
+                            <ul class="items-list">
+                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 אזור הוקונה / הר פוג'י</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="hotels"><span class="item-text" onclick="toggleItem(this)">🏨 לינה בריוקאן מסורתי עם אונסן</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-day-15">
+                                <button onclick="addNewItem('day-15')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-day-15"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 'day-15')"></label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -282,25 +404,79 @@
     </div>
 
     <script>
-        function toggleItem(element) {
-            element.classList.toggle('completed');
-            saveState();
+        let currentWeek = 1;
+        const totalWeeks = 3;
+        const weekTitles = [
+            "שבוע 1 (29.9 – 5.10)",
+            "שבוע 2 (6.10 – 12.10)",
+            "שבוע 3 (13.10 – 20.10)"
+        ];
+
+        function changeWeek(direction) {
+            currentWeek += direction;
+            if (currentWeek > totalWeeks) currentWeek = 1;
+            if (currentWeek < 1) currentWeek = totalWeeks;
+
+            document.querySelectorAll('.week-section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(`week-${currentWeek}`).classList.add('active');
+            document.getElementById('week-title-text').textContent = weekTitles[currentWeek - 1];
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function saveState() {
-            const items = document.querySelectorAll('li');
-            const state = Array.from(items).map(item => item.classList.contains('completed'));
-            localStorage.setItem('japanTableCalendarState', JSON.stringify(state));
+        function toggleItem(element) {
+            const li = element.closest('li');
+            li.classList.toggle('completed');
+            saveAllData();
+        }
+
+        function deleteItem(button) {
+            const li = button.closest('li');
+            li.remove();
+            saveAllData();
+        }
+
+        function addNewItem(dayId) {
+            const input = document.getElementById(`input-${dayId}`);
+            const text = input.value.trim();
+            if (!text) return;
+
+            const card = document.querySelector(`[data-day="${dayId}"]`);
+            const list = card.querySelector('.items-list');
+
+            const li = document.createElement('li');
+            li.className = 'custom-item';
+            li.innerHTML = `<span class="item-text" onclick="toggleItem(this)">${text}</span><button class="delete-btn" onclick="deleteItem(this)">❌</button>`;
+
+            list.appendChild(li);
+            input.value = '';
+            saveAllData();
+        }
+
+        function uploadPhoto(event, dayId) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const photoGrid = document.getElementById(`photos-${dayId}`);
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.className = 'uploaded-photo';
+                photoGrid.appendChild(img);
+                saveAllData();
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function saveAllData() {
+            const wrapperHtml = document.getElementById('content-wrapper').innerHTML;
+            localStorage.setItem('japanAdvancedTripData', wrapperHtml);
         }
 
         window.onload = function() {
-            const savedState = localStorage.getItem('japanTableCalendarState');
-            if (savedState) {
-                const state = JSON.parse(savedState);
-                const items = document.querySelectorAll('li');
-                items.forEach((item, index) => {
-                    if (state[index]) { item.classList.add('completed'); }
-                });
+            const savedHtml = localStorage.getItem('japanAdvancedTripData');
+            if (savedHtml) {
+                document.getElementById('content-wrapper').innerHTML = savedHtml;
             }
         }
     </script>
