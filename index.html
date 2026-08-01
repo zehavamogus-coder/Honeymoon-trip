@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ירח הדבש - יפן ותאילנד 🌸</title>
+    <title>ירח הדבש - יפן המיוחדת ותאילנד 🌸</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
@@ -21,6 +21,7 @@
             overflow: hidden;
         }
 
+        /* וידאו רקע של פריחת דובדבן */
         .video-background {
             position: fixed;
             right: 0;
@@ -31,13 +32,14 @@
             object-fit: cover;
         }
 
+        /* שכבת הצללה בטקיז עמוק ועשיר מעל הוידאו */
         .video-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.35);
+            background: rgba(0, 128, 128, 0.55);
             z-index: -1;
         }
 
@@ -111,19 +113,21 @@
 </head>
 <body>
 
+    <!-- וידאו רקע של פריחת דובדבן (סקורה) -->
     <video autoplay muted loop class="video-background">
         <source src="https://assets.mixkit.co/videos/preview/mixkit-cherry-blossom-tree-branch-in-spring-41132-large.mp4" type="video/mp4">
         הדפדפן שלך אינו תומך בוידאו.
     </video>
 
+    <!-- שכבת צבע טורקיז מעל הווידאו עם פרחי הסקורה ברקע -->
     <div class="video-overlay"></div>
 
     <div class="container">
         <h1>ירח הדבש הקסום 🌸</h1>
-        <p>מסע חלומי בין יפן המופלאה לתאילנד הטרופית</p>
+        <p>מסע חלומי בין יפן המיוחדת לתאילנד הטרופית</p>
         
         <div class="buttons-wrapper">
-            <a href="japan.html" class="btn-destination">🇯🇵 מעבר ליפן</a>
+            <a href="japan.html" class="btn-destination">🇯🇵 יפן המיוחדת</a>
             <a href="thailand.html" class="btn-destination thailand">🌴 תאילנד הקסומה</a>
         </div>
     </div>
