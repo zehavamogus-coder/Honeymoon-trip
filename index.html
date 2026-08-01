@@ -3,26 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ירח הדבש שלנו: יפן ותאילנד 🌸</title>
+    <title>ירח הדבש שלנו: יפן ותאילנד 🌸🌴</title>
     <style>
         :root {
             --bg-color: #FAFAFA;
-            --primary-rose: #E892A2;
-            --mint-green: #A3E4D7;
-            --turquoise: #48C9B0;
+            --primary-rose: #FF6584;
+            --turquoise: #00CEC9;
             --text-dark: #2C3E50;
             --white: #FFFFFF;
-
-            --cat-attractions: #E8F8F5;
-            --cat-attractions-border: #48C9B0;
-            --cat-shopping: #FADBD8;
-            --cat-shopping-border: #E892A2;
-            --cat-restaurants: #FCF3CF;
-            --cat-restaurants-border: #F1C40F;
-            --cat-cafes: #E8F6F3;
-            --cat-cafes-border: #1ABC9C;
-            --cat-museums: #EBD6F5;
-            --cat-museums-border: #9B59B6;
         }
 
         body {
@@ -30,193 +18,82 @@
             background-color: var(--bg-color);
             color: var(--text-dark);
             margin: 0;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, var(--primary-rose), var(--turquoise));
-            color: var(--white);
-            border-radius: 16px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        h1 { margin: 0 0 10px 0; font-size: 2.2rem; }
-        p { margin: 0; font-size: 1.1rem; opacity: 0.95; }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .day-card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-right: 6px solid var(--turquoise);
-        }
-
-        h2 {
-            color: var(--text-dark);
-            border-bottom: 2px solid var(--bg-color);
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-
-        .section-title {
-            font-weight: bold;
-            margin: 18px 0 8px 0;
-            color: #444;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 1.05rem;
-        }
-
-        ul {
-            list-style: none;
             padding: 0;
-            margin: 0;
-        }
-
-        li {
-            padding: 12px 14px;
-            margin: 8px 0;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s ease;
             display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: center;
             align-items: center;
-            gap: 10px;
-            user-select: none;
-            font-size: 1rem;
+            text-align: center;
         }
 
-        li:hover {
-            opacity: 0.9;
-            transform: translateX(-3px);
+        .hero {
+            padding: 50px 20px;
+            max-width: 700px;
         }
 
-        li.attractions { background-color: var(--cat-attractions); border-right: 4px solid var(--cat-attractions-border); }
-        li.shopping { background-color: var(--cat-shopping); border-right: 4px solid var(--cat-shopping-border); }
-        li.restaurants { background-color: var(--cat-restaurants); border-right: 4px solid var(--cat-restaurants-border); }
-        li.cafes { background-color: var(--cat-cafes); border-right: 4px solid var(--cat-cafes-border); }
-        li.museums { background-color: var(--cat-museums); border-right: 4px solid var(--cat-museums-border); }
-
-        li.completed {
-            background: #EAFAF1 !important;
-            color: #7F8C8D !important;
-            text-decoration: line-through;
-            border-right: 4px solid #27AE60 !important;
-            opacity: 0.7;
-        }
-
-        li.completed::before {
-            content: "✅";
-        }
-
-        /* אזור גלריית תמונות לכל יום */
-        .photo-section {
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px dashed #E0E0E0;
-        }
-
-        .photo-section h3 {
-            font-size: 1rem;
-            color: #555;
+        h1 {
+            font-size: 3rem;
+            color: var(--primary-rose);
             margin-bottom: 10px;
         }
 
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            gap: 10px;
+        p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 40px;
         }
 
-        .photo-placeholder {
-            background: #F2F4F4;
-            border: 2px dashed #BDC3C7;
-            border-radius: 8px;
-            height: 90px;
+        .nav-buttons {
             display: flex;
-            align-items: center;
+            gap: 20px;
             justify-content: center;
-            color: #7F8C8D;
-            font-size: 0.85rem;
-            text-align: center;
-            padding: 5px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary-rose), var(--turquoise));
+            color: var(--white);
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .btn span {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>🌸 ירח הדבש שלנו: יפן ותאילנד</h1>
-            <p>המסע הקסום שלנו - לחצו על פעילות כדי לסמן אותה ✔️</p>
-        </header>
-
-        <!-- יום 1 -->
-        <div class="day-card">
-            <h2>יום 1: נחיתה והיכרות עם טוקיו</h2>
-            
-            <div class="section-title">⛩️ אתרי תיירות ואטרקציות</div>
-            <ul>
-                <li class="attractions" onclick="toggleItem(this)">✈️ נחיתה בשדה התעופה והגעה למלון</li>
-                <li class="attractions" onclick="toggleItem(this)">🌆 תצפית על העיר ממגדל העיריה (Tokyo Metropolitan Government Building)</li>
-            </ul>
-
-            <div class="section-title">🍜 מסעדות ואוכל</div>
-            <ul>
-                <li class="restaurants" onclick="toggleItem(this)">🥢 ארוחת ראמן ראשונה במסעדת Ichiran Shinjuku</li>
-                <li class="restaurants" onclick="toggleItem(this)">🍢 סיור ערב ראשון וסמטת האוכל Omoide Yokocho</li>
-            </ul>
-
-            <div class="section-title">☕ בתי קפה</div>
-            <ul>
-                <li class="cafes" onclick="toggleItem(this)">🍵 קינוח מאצ'ה ועוגיות בבית קפה מקומי בשינג'וקו</li>
-            </ul>
-
-            <div class="photo-section">
-                <h3>📸 רגעים מהיום (תמונות)</h3>
-                <div class="photo-grid">
-                    <div class="photo-placeholder">כאן תופיע תמונה 1</div>
-                    <div class="photo-placeholder">כאן תופיע תמונה 2</div>
-                </div>
-            </div>
+    <div class="hero">
+        <h1>🌸 ירח הדבש שלנו 🌴</h1>
+        <p>6 שבועות של חלום: 29.9.2026 – 9.11.2026</p>
+        
+        <div class="nav-buttons">
+            <a href="japan.html" class="btn">
+                🇯🇵 יפן הקסומה
+                <span>29.9 - 20.10 (3 שבועות)</span>
+            </a>
+            <a href="thailand.html" class="btn">
+                🇹🇭 תאילנד הטרופית
+                <span>21.10 - 9.11 (3 שבועות)</span>
+            </a>
         </div>
     </div>
-
-    <script>
-        function toggleItem(element) {
-            element.classList.toggle('completed');
-            saveState();
-        }
-
-        function saveState() {
-            const items = document.querySelectorAll('li');
-            const state = Array.from(items).map(item => item.classList.contains('completed'));
-            localStorage.setItem('honeymoonTripState', JSON.stringify(state));
-        }
-
-        window.onload = function() {
-            const savedState = localStorage.getItem('honeymoonTripState');
-            if (savedState) {
-                const state = JSON.parse(savedState);
-                const items = document.querySelectorAll('li');
-                items.forEach((item, index) => {
-                    if (state[index]) {
-                        item.classList.add('completed');
-                    }
-                });
-            }
-        }
-    </script>
 
 </body>
 </html>
