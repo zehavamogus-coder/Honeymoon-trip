@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ירח הדבש ביפן - לוח שנה שבועי (ראשון - שבת) 🌸</title>
+    <title>יפן המיוחדת - לוח שנה שבועי עם תאריכים 🌸</title>
     <style>
         :root {
             --bg-color: #FAFAFA;
@@ -136,6 +136,14 @@
             padding: 8px;
         }
 
+        .day-date {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--primary-rose);
+            font-weight: bold;
+            margin-top: 3px;
+        }
+
         .items-list {
             list-style: none;
             padding: 0;
@@ -257,67 +265,27 @@
     <div class="container">
         <a href="index.html" class="back-home">🏠 חזרה לעמוד הבית</a>
         <header>
-            <h1>🇯🇵 ירח הדבש ביפן: מסלול שבועי</h1>
-            <p>מנוהל מיום ראשון ועד שיום שבת בכל שבוע</p>
+            <h1>🇯🇵 יפן המיוחדת: מסלול שבועי</h1>
+            <p>מתחיל ביום שלישי, 29 בספטמבר 2026</p>
         </header>
 
         <div class="week-nav">
             <button onclick="changeWeek(-1)">◀ שבוע קודם</button>
-            <h2 class="week-title" id="week-title-text">שבוע 1 (יום ראשון – שבת)</h2>
+            <h2 class="week-title" id="week-title-text">שבוע 1 (29.9.2026 – 3.10.2026)</h2>
             <button onclick="changeWeek(1)">שבוע הבא ▶</button>
         </div>
 
         <div id="content-wrapper">
 
-            <!-- ================= שבוע 1 (ראשון עד שבת) ================= -->
+            <!-- ================= שבוע 1 (מתחיל ב-29.9.2026) ================= -->
             <div class="week-section active" id="week-1">
                 <div class="calendar-grid">
                     
-                    <div class="day-card" data-day="s1-sun">
-                        <div>
-                            <h3>יום ראשון</h3>
-                            <ul class="items-list">
-                                <li class="flights"><span class="item-text" onclick="toggleItem(this)">✈️ טיסה / התארגנות</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <div class="add-item-box">
-                                <input type="text" placeholder="הוסף פעילות..." id="input-s1-sun">
-                                <button onclick="addNewItem('s1-sun')">הוסף</button>
-                            </div>
-                            <div class="photo-section">
-                                <h4>📸 תמונות</h4>
-                                <div class="photo-grid" id="photos-s1-sun"></div>
-                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's1-sun')"></label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="day-card" data-day="s1-mon">
-                        <div>
-                            <h3>יום שני</h3>
-                            <ul class="items-list">
-                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 סיור בטוקיו</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <div class="add-item-box">
-                                <input type="text" placeholder="הוסף פעילות..." id="input-s1-mon">
-                                <button onclick="addNewItem('s1-mon')">הוסף</button>
-                            </div>
-                            <div class="photo-section">
-                                <h4>📸 תמונות</h4>
-                                <div class="photo-grid" id="photos-s1-mon"></div>
-                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's1-mon')"></label>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="day-card" data-day="s1-tue">
                         <div>
-                            <h3>יום שלישי</h3>
+                            <h3>יום שלישי<span class="day-date">29.09.2026</span></h3>
                             <ul class="items-list">
-                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🌆 תצפית ואטרקציות</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="flights"><span class="item-text" onclick="toggleItem(this)">✈️ טיסה / התארגנות</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
                             </ul>
                         </div>
                         <div>
@@ -335,9 +303,9 @@
 
                     <div class="day-card" data-day="s1-wed">
                         <div>
-                            <h3>יום רביעי</h3>
+                            <h3>יום רביעי<span class="day-date">30.09.2026</span></h3>
                             <ul class="items-list">
-                                <li class="shopping"><span class="item-text" onclick="toggleItem(this)">🛍️ שופינג ושווקים</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 סיור בטוקיו</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
                             </ul>
                         </div>
                         <div>
@@ -355,9 +323,9 @@
 
                     <div class="day-card" data-day="s1-thu">
                         <div>
-                            <h3>יום חמישי</h3>
+                            <h3>יום חמישי<span class="day-date">01.10.2026</span></h3>
                             <ul class="items-list">
-                                <li class="restaurants"><span class="item-text" onclick="toggleItem(this)">🥢 מסעדות וקולינריה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🌆 תצפית ואטרקציות</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
                             </ul>
                         </div>
                         <div>
@@ -375,9 +343,9 @@
 
                     <div class="day-card" data-day="s1-fri">
                         <div>
-                            <h3>יום שישי</h3>
+                            <h3>יום שישי<span class="day-date">02.10.2026</span></h3>
                             <ul class="items-list">
-                                <li class="hotels"><span class="item-text" onclick="toggleItem(this)">🏨 מעבר מלון / מנוחה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="shopping"><span class="item-text" onclick="toggleItem(this)">🛍️ שופינג ושווקים</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
                             </ul>
                         </div>
                         <div>
@@ -395,9 +363,9 @@
 
                     <div class="day-card" data-day="s1-sat">
                         <div>
-                            <h3>יום שבת</h3>
+                            <h3>יום שבת<span class="day-date">03.10.2026</span></h3>
                             <ul class="items-list">
-                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🌸 יום חופשי / טיול</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="restaurants"><span class="item-text" onclick="toggleItem(this)">🥢 מסעדות וקולינריה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
                             </ul>
                         </div>
                         <div>
@@ -413,58 +381,58 @@
                         </div>
                     </div>
 
+                    <div class="day-card" data-day="s1-sun">
+                        <div>
+                            <h3>יום ראשון<span class="day-date">04.10.2026</span></h3>
+                            <ul class="items-list">
+                                <li class="hotels"><span class="item-text" onclick="toggleItem(this)">🏨 מעבר מלון / מנוחה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s1-sun">
+                                <button onclick="addNewItem('s1-sun')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-s1-sun"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's1-sun')"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="s1-mon">
+                        <div>
+                            <h3>יום שני<span class="day-date">05.10.2026</span></h3>
+                            <ul class="items-list">
+                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🌸 יום חופשי / טיול</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s1-mon">
+                                <button onclick="addNewItem('s1-mon')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-s1-mon"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's1-mon')"></label>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <!-- ================= שבוע 2 (ראשון עד שבת) ================= -->
+            <!-- ================= שבוע 2 (06.10.2026 – 12.10.2026) ================= -->
             <div class="week-section" id="week-2">
                 <div class="calendar-grid">
                     
-                    <div class="day-card" data-day="s2-sun">
-                        <div>
-                            <h3>יום ראשון</h3>
-                            <ul class="items-list">
-                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 מעבר לקיוטו</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <div class="add-item-box">
-                                <input type="text" placeholder="הוסף פעילות..." id="input-s2-sun">
-                                <button onclick="addNewItem('s2-sun')">הוסף</button>
-                            </div>
-                            <div class="photo-section">
-                                <h4>📸 תמונות</h4>
-                                <div class="photo-grid" id="photos-s2-sun"></div>
-                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's2-sun')"></label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="day-card" data-day="s2-mon">
-                        <div>
-                            <h3>יום שני</h3>
-                            <ul class="items-list">
-                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">⛩️ מקדשים בקיוטו</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <div class="add-item-box">
-                                <input type="text" placeholder="הוסף פעילות..." id="input-s2-mon">
-                                <button onclick="addNewItem('s2-mon')">הוסף</button>
-                            </div>
-                            <div class="photo-section">
-                                <h4>📸 תמונות</h4>
-                                <div class="photo-grid" id="photos-s2-mon"></div>
-                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's2-mon')"></label>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="day-card" data-day="s2-tue">
                         <div>
-                            <h3>יום שלישי</h3>
+                            <h3>יום שלישי<span class="day-date">06.10.2026</span></h3>
                             <ul class="items-list">
-                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🎋 יער הבמבוק אראשיאמה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 מעבר לקיוטו</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
                             </ul>
                         </div>
                         <div>
@@ -482,9 +450,9 @@
 
                     <div class="day-card" data-day="s2-wed">
                         <div>
-                            <h3>יום רביעי</h3>
+                            <h3>יום רביעי<span class="day-date">07.10.2026</span></h3>
                             <ul class="items-list">
-                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 נסיעה לאוסקה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">⛩️ מקדשים בקיוטו</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
                             </ul>
                         </div>
                         <div>
@@ -502,9 +470,9 @@
 
                     <div class="day-card" data-day="s2-thu">
                         <div>
-                            <h3>יום חמישי</h3>
+                            <h3>יום חמישי<span class="day-date">08.10.2026</span></h3>
                             <ul class="items-list">
-                                <li class="restaurants"><span class="item-text" onclick="toggleItem(this)">🍢 אוכל רחוב דותונбори</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🎋 יער הבמבוק אראשיאמה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
                             </ul>
                         </div>
                         <div>
@@ -522,9 +490,9 @@
 
                     <div class="day-card" data-day="s2-fri">
                         <div>
-                            <h3>יום שישי</h3>
+                            <h3>יום שישי<span class="day-date">09.10.2026</span></h3>
                             <ul class="items-list">
-                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🎡 אולפני יוניברסל אוסקה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 נסיעה לאוסקה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
                             </ul>
                         </div>
                         <div>
@@ -542,9 +510,9 @@
 
                     <div class="day-card" data-day="s2-sat">
                         <div>
-                            <h3>יום שבת</h3>
+                            <h3>יום שבת<span class="day-date">10.10.2026</span></h3>
                             <ul class="items-list">
-                                <li class="shopping"><span class="item-text" onclick="toggleItem(this)">🛍️ שופינג אחרון באוסקה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="restaurants"><span class="item-text" onclick="toggleItem(this)">🍢 אוכל רחוב דותונבורי</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
                             </ul>
                         </div>
                         <div>
@@ -560,58 +528,58 @@
                         </div>
                     </div>
 
+                    <div class="day-card" data-day="s2-sun">
+                        <div>
+                            <h3>יום ראשון<span class="day-date">11.10.2026</span></h3>
+                            <ul class="items-list">
+                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🎡 אולפני יוניברסל אוסקה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s2-sun">
+                                <button onclick="addNewItem('s2-sun')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-s2-sun"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's2-sun')"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="s2-mon">
+                        <div>
+                            <h3>יום שני<span class="day-date">12.10.2026</span></h3>
+                            <ul class="items-list">
+                                <li class="shopping"><span class="item-text" onclick="toggleItem(this)">🛍️ שופינג אחרון באוסקה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s2-mon">
+                                <button onclick="addNewItem('s2-mon')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-s2-mon"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's2-mon')"></label>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <!-- ================= שבוע 3 (ראשון עד שבת) ================= -->
+            <!-- ================= שבוע 3 (13.10.2026 – 19.10.2026) ================= -->
             <div class="week-section" id="week-3">
                 <div class="calendar-grid">
                     
-                    <div class="day-card" data-day="s3-sun">
-                        <div>
-                            <h3>יום ראשון</h3>
-                            <ul class="items-list">
-                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 מעבר להר פוג'י / אקונה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <div class="add-item-box">
-                                <input type="text" placeholder="הוסף פעילות..." id="input-s3-sun">
-                                <button onclick="addNewItem('s3-sun')">הוסף</button>
-                            </div>
-                            <div class="photo-section">
-                                <h4>📸 תמונות</h4>
-                                <div class="photo-grid" id="photos-s3-sun"></div>
-                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's3-sun')"></label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="day-card" data-day="s3-mon">
-                        <div>
-                            <h3>יום שני</h3>
-                            <ul class="items-list">
-                                <li class="hotels"><span class="item-text" onclick="toggleItem(this)">♨️ ריוקאן ואונסן מסורתי</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <div class="add-item-box">
-                                <input type="text" placeholder="הוסף פעילות..." id="input-s3-mon">
-                                <button onclick="addNewItem('s3-mon')">הוסף</button>
-                            </div>
-                            <div class="photo-section">
-                                <h4>📸 תמונות</h4>
-                                <div class="photo-grid" id="photos-s3-mon"></div>
-                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's3-mon')"></label>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="day-card" data-day="s3-tue">
                         <div>
-                            <h3>יום שלישי</h3>
+                            <h3>יום שלישי<span class="day-date">13.10.2026</span></h3>
                             <ul class="items-list">
-                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 חזרה לטוקיו לסיום</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 מעבר להר פוג'י / אקונה</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
                             </ul>
                         </div>
                         <div>
@@ -629,9 +597,9 @@
 
                     <div class="day-card" data-day="s3-wed">
                         <div>
-                            <h3>יום רביעי</h3>
+                            <h3>יום רביעי<span class="day-date">14.10.2026</span></h3>
                             <ul class="items-list">
-                                <li class="shopping"><span class="item-text" onclick="toggleItem(this)">🛍️ קניות אחרונות ומזוודות</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="hotels"><span class="item-text" onclick="toggleItem(this)">♨️ ריוקאן ואונסן מסורתי</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
                             </ul>
                         </div>
                         <div>
@@ -649,9 +617,9 @@
 
                     <div class="day-card" data-day="s3-thu">
                         <div>
-                            <h3>יום חמישי</h3>
+                            <h3>יום חמישי<span class="day-date">15.10.2026</span></h3>
                             <ul class="items-list">
-                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🍣 ארוחת פפריישן / מסעדת שף</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="areas"><span class="item-text" onclick="toggleItem(this)">📍 חזרה לטוקיו לסיום</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
                             </ul>
                         </div>
                         <div>
@@ -669,9 +637,9 @@
 
                     <div class="day-card" data-day="s3-fri">
                         <div>
-                            <h3>יום שישי</h3>
+                            <h3>יום שישי<span class="day-date">16.10.2026</span></h3>
                             <ul class="items-list">
-                                <li class="flights"><span class="item-text" onclick="toggleItem(this)">✈️ טיסה חזרה הארץ</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="shopping"><span class="item-text" onclick="toggleItem(this)">🛍️ קניות אחרונות ומזוודות</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
                             </ul>
                         </div>
                         <div>
@@ -689,9 +657,9 @@
 
                     <div class="day-card" data-day="s3-sat">
                         <div>
-                            <h3>יום שבת</h3>
+                            <h3>יום שבת<span class="day-date">17.10.2026</span></h3>
                             <ul class="items-list">
-                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🏠 הגעה הביתה וסיכום ירח דבש</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🍣 ארוחת פפריישן / מסעדת שף</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
                             </ul>
                         </div>
                         <div>
@@ -707,6 +675,46 @@
                         </div>
                     </div>
 
+                    <div class="day-card" data-day="s3-sun">
+                        <div>
+                            <h3>יום ראשון<span class="day-date">18.10.2026</span></h3>
+                            <ul class="items-list">
+                                <li class="flights"><span class="item-text" onclick="toggleItem(this)">✈️ טיסה חזרה הארץ</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s3-sun">
+                                <button onclick="addNewItem('s3-sun')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-s3-sun"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's3-sun')"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="s3-mon">
+                        <div>
+                            <h3>יום שני<span class="day-date">19.10.2026</span></h3>
+                            <ul class="items-list">
+                                <li class="attractions"><span class="item-text" onclick="toggleItem(this)">🏠 הגעה הביתה וסיכום ירח דבש</span><button class="delete-btn" onclick="deleteItem(this)">❌</button></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="add-item-box">
+                                <input type="text" placeholder="הוסף פעילות..." id="input-s3-mon">
+                                <button onclick="addNewItem('s3-mon')">הוסף</button>
+                            </div>
+                            <div class="photo-section">
+                                <h4>📸 תמונות</h4>
+                                <div class="photo-grid" id="photos-s3-mon"></div>
+                                <label class="upload-btn-label">📁 העלה תמונה<input type="file" class="file-input" accept="image/*" onchange="uploadPhoto(event, 's3-mon')"></label>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -718,9 +726,9 @@
         let currentWeek = 1;
         const totalWeeks = 3;
         const weekTitles = [
-            "שבוע 1 (יום ראשון – שבת)",
-            "שבוע 2 (יום ראשון – שבת)",
-            "שבוע 3 (יום ראשון – שבת)"
+            "שבוע 1 (29.09.2026 – 05.10.2026)",
+            "שבוע 2 (06.10.2026 – 12.10.2026)",
+            "שבוע 3 (13.10.2026 – 19.10.2026)"
         ];
 
         function changeWeek(direction) {
@@ -781,11 +789,11 @@
 
         function saveAllData() {
             const wrapperHtml = document.getElementById('content-wrapper').innerHTML;
-            localStorage.setItem('japanSundayToSaturdayData', wrapperHtml);
+            localStorage.setItem('japanSpecialTripData', wrapperHtml);
         }
 
         window.onload = function() {
-            const savedHtml = localStorage.getItem('japanSundayToSaturdayData');
+            const savedHtml = localStorage.getItem('japanSpecialTripData');
             if (savedHtml) {
                 document.getElementById('content-wrapper').innerHTML = savedHtml;
             }
